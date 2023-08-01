@@ -1,9 +1,7 @@
 <?php 
+
+  how to add js file globally in frontend
 /*
-
-
-  #how to add js file globally in frontend
-
   1- create a module and register it
   2- In app/code/Vendor/Module/view/frontend/layout/ create a default.xml file
   3- Add 
@@ -21,11 +19,12 @@
   app/code/Vendor/Module/view/frontend/web/js/any.js
 
   6- in terminal    php -d memory_limit=-1  bin/magento s:s:d -f 
+*/
+    
 
+how to add js file globally in admin panel
 
-  #how to add js file globally in admin panel
-
-
+/*
  1- create a module and register it
   2- In app/code/Vendor/Module/view/adminhtml/layout/ create a default.xml file
   3- Add 
@@ -44,7 +43,7 @@
 
   6- in terminal    php -d memory_limit=-1  bin/magento s:s:d -f 
 
-
+*/
 
 
 
