@@ -1,0 +1,219 @@
+@media only screen and (max-width: 1300px) {
+  .navbar ul {
+    order: 1;
+    flex: 1;
+    justify-content: space-evenly;
+  }
+  .yo {
+    flex-direction: column;
+  }
+  ol.to-clear {
+    justify-content: space-between;
+  }
+}
+@media only screen and (max-width: 1000px) {
+  .container .to-contact .contact fieldset .contact-one {
+    flex-direction: column;
+  }
+}
+@media only screen and (max-width: 676px) {
+  .container .to-contact .contact {
+    flex-direction: column;
+  }
+}
+.page-header {
+  width: 80%;
+  max-width: 80%;
+  margin: 0 auto;
+}
+.page-header .panel.wrapper {
+  background-color: #9EA8BD !important;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+.page-header .panel.wrapper .header.links {
+  float: none;
+  display: flex;
+  font-size: 12px;
+  align-items: center;
+  justify-content: space-between;
+}
+.page-header .panel.wrapper .header.links > div {
+  display: flex;
+  gap: 1rem;
+}
+.page-header .panel.wrapper .header.links > div span:first-child {
+  font-weight: 900;
+}
+.page-header .navbar {
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.page-header .navbar li {
+  padding: 25px 0;
+}
+.page-header .navbar div.todisplay {
+  display: flex;
+  visibility: hidden;
+  z-index: 3;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+  top: 70px;
+  width: 900px;
+  max-width: 100vw;
+  height: auto;
+  justify-content: space-around;
+  background: white;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  padding: 20px 0;
+}
+.page-header .navbar div.todisplay .category-child {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 15px;
+}
+.page-header .navbar div.todisplay .category-child ul {
+  flex-direction: column;
+  justify-content: unset;
+}
+.page-header .navbar div.todisplay .category-child ul a {
+  color: black;
+  font-size: 11px;
+}
+.page-header .navbar div.todisplay .category-child div {
+  font-size: 13px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.page-header .navbar div.todisplay .category-child div a {
+  display: block;
+  padding: 7px 0;
+}
+.page-header .navbar div.todisplay .category-child div a h6 {
+  font-weight: 300;
+}
+.page-header .navbar div.todisplay .category-child h6 {
+  font-size: 1.3rem;
+  color: #3C3C3C;
+  line-height: 1;
+}
+.page-header .navbar .block.block-search {
+  float: none;
+  margin-right: 15px;
+  flex: auto;
+}
+.page-header .navbar .block.block-search .actions button {
+  background-color: #FE6717;
+  opacity: 1;
+  color: #fff;
+  font-weight: 600;
+  font-size: 12px;
+  padding: 0 8px;
+  gap: 3px;
+  text-transform: uppercase;
+  padding-block: 1px;
+  border-radius: 11px;
+  top: 4px;
+  right: 4px;
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+}
+.page-header .navbar .block.block-search .actions button::before {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  color: #fff;
+}
+.page-header .navbar .block.block-search .actions button::after {
+  content: 'search';
+}
+.page-header .navbar input {
+  padding-right: 7rem !important;
+  position: unset !important;
+  border-radius: 13px;
+  padding-block: 20px;
+  box-shadow: none;
+  font-family: "AmsiPro-italic" !important;
+  font-size: 14px !important;
+  text-shadow: 0 0 black !important;
+  text-indent: 10px !important;
+}
+.page-header .navbar a {
+  margin: 0;
+}
+.page-header .navbar ul {
+  list-style: none;
+  display: flex;
+  gap: 15px;
+  margin: 0;
+}
+.page-header .navbar ul > li {
+  margin-bottom: 0;
+}
+.page-header .navbar ul > li > a {
+  color: black;
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+.page-header .navbar .bags-holder {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+.page-header .navbar .bags-holder .minicart-wrapper {
+  margin-left: 0;
+}
+.page-header .navbar .bags-holder .sign-in {
+  text-decoration: none;
+  background-color: #FE6717;
+  padding-block: 9px;
+  padding-inline: 18px;
+  border-radius: 30px;
+  font-size: 13px;
+  border: 1px solid #FE6717;
+  transition: all 200ms;
+  font-family: "AmsiPro-Bold";
+}
+.page-header .navbar .bags-holder .sign-in li {
+  list-style: none;
+  padding: 0 !important;
+}
+.page-header .navbar .bags-holder .sign-in li a {
+  color: white;
+  font-weight: 600;
+  font-family: sans-serif;
+}
+.page-header .navbar .bags-holder .minicart-wrapper .action.showcart:before {
+  font-size: 31px;
+}
+.page-main {
+  margin: 0;
+  padding: 0 !important;
+  max-width: none !important;
+}
+.page-main .columns .column.main {
+  padding: 0 !important;
+}
+.page-main .columns .column.main .raduis .owl-stage-outer {
+  border-radius: 50px;
+}
+.page-main .columns .column.main .owl-nav {
+  margin: 0 !important;
+}
+a {
+  text-decoration: none;
+}
+.page-layout-shop .carousel-container {
+  margin-top: 8px;
+}
+.page-layout-shop .carousel-container .owl-stage-outer {
+  border-bottom-right-radius: 198px;
+  border-bottom: 11px solid #C34E13;
+}

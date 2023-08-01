@@ -1,0 +1,14 @@
+"The Magento cache storage has been flushed.","The Magento cache storage has been flushed."
+"You have reindexed successfully.","You have reindexed successfully."
+"Yes (Automatic)","Yes (Automatic)"
+"Yes (Manual)","Yes (Manual)"
+No,No
+"The Magento cache storage has been automatically flushed.","The Magento cache storage has been automatically flushed."
+"Reindex Now!","Reindex Now!"
+"Flush Now!","Flush Now!"
+Loading,Loading
+"Quick Flush Cache","Quick Flush Cache"
+General,General
+"Enable Quick Flush Cache","Enable Quick Flush Cache"
+"With automatic mode, the cache is flushed automatically right when the page is reloaded<br>With manual mode, the cache is flushed manually when admin clicks on Flush Now button","With automatic mode, the cache is flushed automatically right when the page is reloaded<br>With manual mode, the cache is flushed manually when admin clicks on Flush Now button"
+"Enable Quick Reindex","Enable Quick Reindex"

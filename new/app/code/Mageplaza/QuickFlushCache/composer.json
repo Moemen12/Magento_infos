@@ -1,0 +1,26 @@
+{
+  "name": "mageplaza/module-quick-flush-cache",
+  "description": "Magento 2 Quick Flush Cache Extension",
+  "require": {
+    "mageplaza/module-core": "^1.4.5"
+  },
+  "type": "magento2-module",
+  "version": "1.0.0",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "Mageplaza",
+      "email": "support@mageplaza.com",
+      "homepage": "https://www.mageplaza.com",
+      "role": "Technical Support"
+    }
+  ],
+  "autoload": {
+    "files": [
+      "registration.php"
+    ],
+    "psr-4": {
+      "Mageplaza\\QuickFlushCache\\": ""
+    }
+  }
+}

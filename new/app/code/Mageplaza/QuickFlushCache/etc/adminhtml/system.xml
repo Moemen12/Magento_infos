@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Mageplaza
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the mageplaza.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.mageplaza.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Mageplaza
+ * @package     Mageplaza_QuickFlushCache
+ * @copyright   Copyright (c) Mageplaza (https://www.mageplaza.com/)
+ * @license     https://www.mageplaza.com/LICENSE.txt
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="mpquickflushcache" translate="label" type="text" sortOrder="300" showInDefault="1" showInWebsite="0" showInStore="0" canRestore="1">
+            <label>Quick Flush Cache</label>
+            <tab>mageplaza</tab>
+            <resource>Mageplaza_QuickFlushCache::configuration</resource>
+            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" canRestore="1">
+                <label>General</label>
+                <field id="enabled_flush_cache" translate="label comment" type="select" sortOrder="10" showInDefault="1" canRestore="1">
+                    <label>Enable Quick Flush Cache</label>
+                    <source_model>Mageplaza\QuickFlushCache\Model\Config\Source\System\YesNo</source_model>
+                    <comment><![CDATA[With automatic mode, the cache is flushed automatically right when the page is reloaded<br>With manual mode, the cache is flushed manually when admin clicks on Flush Now button]]></comment>
+                </field>
+                <field id="enabled_reindex" translate="label comment" type="select" sortOrder="20" showInDefault="1" canRestore="1">
+                    <label>Enable Quick Reindex</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

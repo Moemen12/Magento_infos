@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+
+    <head>
+        <css src="Magento_Catalog/css/product.css"/>
+    </head>
+    <body>
+        <!-- <referenceContainer name="product.info.main" remove="true" /> -->
+        <referenceBlock name="product.info.details" remove="true"/>
+        <referenceBlock name="view.addto.compare" remove="true"/>
+        <referenceBlock name="view.addto.wishlist" remove="true"/>
+        <referenceBlock name="product.info.review" remove="true"/>
+        <referenceBlock name="product.info.overview" remove="true"/>
+
+
+
+
+
+
+        <move element="breadcrumbs" destination="unique.product" />
+        <move element="product.info.media" destination="unique.product" />
+        <move element="product.info.main" destination="unique.product" />
+
+
+        <referenceContainer name="content">
+
+            <block name="unique.product" class="Magento\Framework\View\Element\Template" template="Magento_Catalog::uniqueProduct.phtml">
+
+
+
+            </block>
+
+        </referenceContainer>
+    </body>
+</page>

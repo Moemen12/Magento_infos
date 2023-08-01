@@ -1,0 +1,167 @@
+/*
+     extending properties
+*/
+.text-decor,
+.cart-style .all-products .products-text {
+  display: flex;
+  justify-content: flex-start;
+  font-size: 23px;
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-bottom: 15px !important;
+  margin-top: 60px !important;
+}
+.text-before-decor,
+.cart-style .all-products .products-text::before {
+  content: '';
+  width: 35px;
+  height: 20px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  display: inline-block;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='26.845' height='33.518' viewBox='0 0 26.845 33.518'%3E%3Cdefs%3E%3CradialGradient id='radial-gradient' cx='0.655' cy='0.648' r='0.384' gradientUnits='objectBoundingBox'%3E%3Cstop offset='0' stop-color='%23fff'/%3E%3Cstop offset='1' stop-color='%23ff6717'/%3E%3C/radialGradient%3E%3C/defs%3E%3Cg id='Group_285' data-name='Group 285' transform='translate(-2.027)'%3E%3Cg id='Group_272' data-name='Group 272' transform='translate(2.027)'%3E%3Cpath id='Path_85' data-name='Path 85' d='M676.763,664.071a3.479,3.479,0,0,1-1.81-.5,3.186,3.186,0,0,0,3.3,1.873l11.508-1.37Z' transform='translate(-674.953 -631.946)' fill='%23fd6717'/%3E%3Cpath id='Path_86' data-name='Path 86' d='M693.515,610.708a3.475,3.475,0,0,1,1.341-1.315,3.186,3.186,0,0,0-3.271,1.919l-4.568,10.651Z' transform='translate(-679.977 -609.376)' fill='%23fd6717'/%3E%3C/g%3E%3Cpath id='Path_91' data-name='Path 91' d='M684.258,635.925a11.244,11.244,0,0,1,20.989-5.616,11.442,11.442,0,1,0-10.075,16.867c.057,0,.111-.008.168-.009A11.245,11.245,0,0,1,684.258,635.925Z' transform='translate(-676.582 -615.588)' fill='%23ff6717'/%3E%3Ccircle id='Ellipse_25' data-name='Ellipse 25' cx='5.141' cy='5.141' r='5.141' transform='translate(18.59 17.743)' fill='url(%23radial-gradient)'/%3E%3C/g%3E%3C/svg%3E%0A");
+}
+.displaying,
+.cart-style .all-products ol li .holder button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.cart-style .all-products {
+  width: 80%;
+  margin: auto;
+  padding: 0 0 83px 0;
+}
+.cart-style .all-products a.shop {
+  text-decoration: none;
+  color: white;
+  background-color: #fe6717;
+  border-radius: 30px;
+  width: 150px;
+  height: 40px;
+  padding: 0 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 2rem;
+  margin-right: auto;
+  margin-left: auto;
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.cart-style .all-products a.shop::after {
+  content: '';
+  width: 12px;
+  height: 15px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  display: block;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='13' height='15' viewBox='0 0 13 15'%3E%3Cpath id='Polygon_3' data-name='Polygon 3' d='M5.768,3A2,2,0,0,1,9.232,3l4.037,7a2,2,0,0,1-1.732,3H3.463A2,2,0,0,1,1.73,10Z' transform='translate(13) rotate(90)' fill='%23fff'/%3E%3C/svg%3E%0A");
+}
+.cart-style .all-products .products-text {
+  padding: 30px;
+}
+.cart-style .all-products .product-grid {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+}
+.cart-style .all-products ol {
+  display: flex;
+  gap: 20px;
+}
+.cart-style .all-products ol li {
+  display: flex;
+  flex-direction: column;
+  width: 240px !important;
+  background-color: white;
+  border-radius: 17px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  text-align: center;
+  height: auto;
+}
+.cart-style .all-products ol li span.product-image-wrapper {
+  padding-bottom: 180px !important;
+}
+.cart-style .all-products ol li a.product-wishlist {
+  margin: 15px 15px 0 auto;
+  width: fit-content;
+}
+.cart-style .all-products ol li div[data-container="product-grid"] {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.cart-style .all-products ol li img {
+  width: 60%;
+  height: auto;
+  object-fit: cover;
+  margin: 0 auto;
+}
+.cart-style .all-products ol li .holder {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 16px;
+  flex: auto;
+}
+.cart-style .all-products ol li .holder strong {
+  font-size: 1.6rem;
+}
+.cart-style .all-products ol li .holder strong a {
+  color: black;
+  text-transform: capitalize;
+}
+.cart-style .all-products ol li .holder button {
+  border-radius: 20px;
+  background: transparent;
+  color: #FE6717;
+  border: 1.5px solid #FE6717;
+  width: 154px;
+  margin: auto;
+}
+.cart-style .all-products ol li .holder button::before {
+  content: '';
+  transition: all 200ms;
+  width: 17px;
+  height: 20px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  display: block;
+  margin-right: 0.5rem;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='23.349' height='22.813' viewBox='0 0 23.349 22.813'%3E%3Cg id='noun-basket-1131349' transform='translate(-187.171 -120.698)'%3E%3Cpath id='Path_50' data-name='Path 50' d='M210.172,128.569a1.606,1.606,0,0,0-1.241-.586H207.39l-.028-.04-5.62-6.917a.8.8,0,1,0-1.245,1.011l4.817,5.949H192.066l4.817-5.949h0a.8.8,0,1,0-1.244-1.011l-5.62,6.917-.028.04h-1.233A1.606,1.606,0,0,0,187.2,129.9l2.063,10.377h0a4.015,4.015,0,0,0,3.938,3.232h11.3a4.014,4.014,0,0,0,3.938-3.232l2.043-10.377a1.605,1.605,0,0,0-.313-1.333Zm-3.3,11.4a2.409,2.409,0,0,1-2.361,1.939H193.183a2.409,2.409,0,0,1-2.368-1.939l-2.055-10.377h20.168Z' fill='%23fe6717'/%3E%3Cpath id='Path_51' data-name='Path 51' d='M339.6,297.865a.8.8,0,0,0,.8-.8v-4.107a.8.8,0,0,0-1.606,0v4.107a.8.8,0,0,0,.8.8Z' transform='translate(-140.761 -159.164)' fill='%23fe6717'/%3E%3Cpath id='Path_52' data-name='Path 52' d='M395.6,297.865a.8.8,0,0,0,.8-.8v-4.107a.8.8,0,0,0-1.606,0v4.107a.8.8,0,0,0,.8.8Z' transform='translate(-192.747 -159.164)' fill='%23fe6717'/%3E%3Cpath id='Path_53' data-name='Path 53' d='M283.6,297.865a.8.8,0,0,0,.8-.8v-4.107a.8.8,0,0,0-1.606,0v4.107a.8.8,0,0,0,.8.8Z' transform='translate(-88.775 -159.164)' fill='%23fe6717'/%3E%3C/g%3E%3C/svg%3E ");
+}
+.cart-style .all-products ol li .holder .price {
+  color: #FE6717;
+  font-weight: 600;
+  font-size: 1.8rem;
+}
+.centerize-Element {
+  max-width: 80%;
+  width: 80%;
+  margin: 0 auto;
+}
+/*
+
+extending Colors
+
+*/
+.product-btn-styling {
+  color: #fc6d20;
+  font-weight: 500;
+  min-width: 95px;
+  height: 40px;
+  background: transparent;
+  border: 1px solid #FC6E20;
+  border-radius: 50px;
+  padding: 9px 10px;
+  text-align: center;
+  transition: all 200ms;
+  margin: 0.5rem 0.5rem;
+  font-size: 1.4rem;
+  text-transform: uppercase;
+}

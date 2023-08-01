@@ -1,0 +1,64 @@
+<script>
+require(['Swiper'], function(Swiper) {
+    $(document).ready(function() {
+        swiper = new Swiper(".mySwiper", {
+            slidesPerView: 6,
+
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+        });
+    });
+});
+</script>
+
+<div class='container raduis'>
+    <?= $block->getLayout()->createBlock('Mageplaza\BannerSlider\Block\Widget')->setSliderId(3)->toHtml(); ?>
+</div>
+<?php
+
+
+// echo '<pre>';
+// print_r($block->hi());
+
+// echo '</pre>';
+
+
+
+
+
+?>
+
+
+
+
+
+
+<section class="container-fluid two">
+    <div class='side-bar'></div>
+    <div class="all-products swiper mySwiper">
+
+        <p class='products-text'>brands</p>
+
+        <div class='brands swiper-wrapper'>
+            <?php
+            $swatchData = $block->getSwatchData();
+            ?>
+            <?php if (!empty($swatchData)) : ?>
+            <?php foreach ($swatchData as $swatchOption) : ?>
+            <?php if ($swatchOption['image_url']) : ?>
+            <a class="swiper-slide" href="<?php echo 'shop?brands='. $swatchOption['option_id']; ?>">
+                <img src="<?php echo $swatchOption['image_url']; ?>" alt="<?php echo $swatchOption['label']; ?>">
+            </a>
+            <?php endif; ?>
+            <?php endforeach; ?>
+            <?php else : ?>
+            <p>No swatch data available.</p>
+            <?php endif; ?>
+
+
+        </div>
+        <a class="shop yup" href="<?= $block->getBaseUrl() ?>shop">view all</a>
+    </div>
+</section>

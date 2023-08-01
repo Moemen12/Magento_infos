@@ -1,0 +1,37 @@
+<div>
+    <div class="card parentCategoriesTwo">
+        <div class="card-header two" data-toggle="collapse">
+            <h5 class="mb-0">
+                <div class="accordion-toggle">
+                    Prices
+                </div>
+            </h5>
+            <div class='new-arrow'></div>
+        </div>
+    </div>
+    <div class="collapse">
+        <ol class="items">
+            <?php foreach ($filterItems as $filterItem) : ?>
+                <li class="item">
+                    <?php if ($filterItem->getCount() > 0) : ?>
+                        <a href="<?= $block->escapeUrl($filterItem->getUrl()) ?>">
+                            <?= /* @noEscape */ $filterItem->getLabel() ?>
+                            <?php if ($this->helper(\Magento\Catalog\Helper\Data::class)->shouldDisplayProductCountOnLayer()) : ?>
+                                <span class="count"><?= /* @noEscape */ (int)$filterItem->getCount() ?><span class="filter-count-label">
+                                        <?php if ($filterItem->getCount() == 1) : ?>
+                                            <?= $block->escapeHtml(__('item')) ?><?php else : ?>
+                                            <?= $block->escapeHtml(__('items')) ?><?php endif; ?></span></span>
+                            <?php endif; ?>
+                        </a>
+                    <?php else : ?>
+                        <?= /* @noEscape */ $filterItem->getLabel() ?>
+                        <?php if ($this->helper(\Magento\Catalog\Helper\Data::class)->shouldDisplayProductCountOnLayer()) : ?>
+                            <span class="count"><?= /* @noEscape */ (int)$filterItem->getCount() ?><span class="filter-count-label">
+                                    <?php if ($filterItem->getCount() == 1) : ?><?= $block->escapeHtml(__('item')) ?><?php else : ?><?= $block->escapeHtml(__('items')) ?><?php endif; ?></span></span>
+                        <?php endif; ?>
+                    <?php endif; ?>
+                </li>
+            <?php endforeach ?>
+        </ol>
+    </div>
+</div>

@@ -1,0 +1,19 @@
+<?= $block->getLayout()->createBlock('Mageplaza\BannerSlider\Block\Widget')->setSliderId(2)->toHtml(); ?>
+
+
+
+
+<div class='container centerize-Element'>
+    <div class="d-flex yo">
+        <div class='leftnav'>
+            <?php echo $this->getChildHtml('catalogsearch.leftnav'); ?>
+        </div>
+        <div class="whole-products">
+            <?php echo $this->getChildHtml('product_list'); ?>
+
+        </div>
+
+
+
+    </div>
+</div>

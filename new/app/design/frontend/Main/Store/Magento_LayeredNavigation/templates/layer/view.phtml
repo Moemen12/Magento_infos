@@ -1,0 +1,149 @@
+<?php
+$blockInstance = $block->getLayout()->createBlock('Main\Store\Block\TheHeader');
+$allCategories = $blockInstance->getCategories();
+?>
+
+
+<script>
+function NewtoggleCategories() {
+    let parentCategoriesElement = document.getElementById('NewparentCategories');
+    let toggleElement = document.querySelector('#accordion .card-header.new');
+    let isCollapsed = parentCategoriesElement.classList.contains('show');
+
+    parentCategoriesElement.classList.toggle('show', !isCollapsed);
+
+    if (toggleElement) {
+        toggleElement.classList.toggle('collapsed', !isCollapsed);
+    }
+}
+
+function toggleAccordion(categoryId) {
+    let collapseId = "collapse-" + categoryId;
+    let collapseElement = document.getElementById(collapseId);
+    let toggleElement = document.querySelector('#' + collapseId + ' .accordion-toggle');
+    let isCollapsed = collapseElement.classList.contains('show');
+
+    collapseElement.classList.toggle('show', !isCollapsed);
+
+    if (toggleElement) {
+        toggleElement.classList.toggle('collapsed', !isCollapsed);
+    }
+}
+</script>
+
+
+<div>
+    <div class="card">
+        <div class="card-header new" onclick="NewtoggleCategories()" data-toggle="collapse"
+            data-target="#parentCategories">
+            <h5 class="mb-0">
+                <div class="accordion-toggle">
+                    Category
+                </div>
+            </h5>
+            <div class='new-arrow'></div>
+        </div>
+
+    </div>
+
+    <div id="NewparentCategories" class="collapse show">
+        <?php foreach ($allCategories as $categoryId => $category) : ?>
+        <div class="card">
+            <div class="card-header" onclick="toggleAccordion(<?php echo $categoryId; ?>)" data-toggle="collapse"
+                data-target="#collapse-<?php echo $categoryId; ?>">
+                <h5 class="mb-0">
+                    <div class="accordion-toggle">
+                        <?php echo $category['name']; ?>
+                    </div>
+                </h5>
+                <div class='second-arrow'></div>
+            </div>
+            <div class='line'></div>
+
+            <div id="collapse-<?php echo $categoryId; ?>" class="collapse show">
+                <div class="card-body">
+                    <?php echo $blockInstance->renderSubcategories($category['subcategories']); ?>
+                </div>
+            </div>
+        </div>
+        <?php endforeach; ?>
+    </div>
+</div>
+
+<div class="to-accordion">
+
+    <?php if ($block->canShowBlock()) : ?>
+    <div class="block filter">
+        <div class="block-title filter-title">
+            <strong><?= $block->escapeHtml(__('Shop By')) ?></strong>
+        </div>
+
+        <div class="block-content filter-content">
+            <?= $block->getChildHtml('state') ?>
+
+            <?php if ($block->getLayer()->getState()->getFilters()) : ?>
+            <div class="block-actions filter-actions">
+                <a href="<?= $block->escapeUrl($block->getClearUrl()) ?>"
+                    class="action clear filter-clear"><span><?= $block->escapeHtml(__('Clear All')) ?></span></a>
+            </div>
+            <?php endif; ?>
+            <?php $wrapOptions = false; ?>
+            <?php foreach ($block->getFilters() as $filter) : ?>
+            <?php if (!$wrapOptions) : ?>
+
+            <dl class="filter-options" id="narrow-by-list">
+                <?php $wrapOptions = true;
+                    endif; ?>
+                <?php if ($filter->getItemsCount()) : ?>
+
+
+
+                <dd class="filter-options-content panel">
+                    <?= /* @noEscape */ $block->getChildBlock('renderer')->render($filter) ?>
+                </dd>
+                <?php endif; ?>
+                <?php endforeach; ?>
+                <?php if ($wrapOptions) : ?>
+
+            </dl>
+            <?php endif; ?>
+        </div>
+    </div>
+    <?php endif; ?>
+
+</div>
+
+<script>
+let accBtn = 0;
+
+document.querySelector('#accordion .card-header').addEventListener('click', function() {
+    if (accBtn == 1) {
+        document.querySelector('.new-arrow').style.transform = 'rotate(180deg)';
+        accBtn--;
+    } else {
+        document.querySelector('.new-arrow').style.transform = 'rotate(0deg)';
+        accBtn++;
+    }
+
+});
+
+document.querySelectorAll('#parentCategories .card .card-header').forEach(function($value) {
+    let m = 0;
+
+    $value.addEventListener('click', function() {
+
+
+        let secondArrow = this.lastChild.previousElementSibling;
+
+        if (m == 1) {
+            secondArrow.style.cssText = 'rotate:180deg;transform:translate(-9px, -4px)';
+            m--;
+        } else {
+            secondArrow.style.cssText = 'rotate:0deg;transform:translate(9px, 4px)';
+            m++;
+        }
+
+
+    });
+});
+</script>

@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page layout="1column"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="default_head_blocks"/>
+    <body>
+        <referenceContainer name="header-wrapper" remove="true" />
+        <referenceContainer name="page.top" remove="true" />
+        <referenceBlock name="authorization-link-login" remove="true" />
+        <referenceBlock name="register-link" remove="true" />
+        <referenceBlock name="cms_page" remove="true"/>
+        <referenceBlock name="page.main.title" remove="true"/>
+        <referenceBlock name="page.bottom.container" remove="true"/>
+        <referenceBlock name="before.body.end" remove="true"/>
+        <move element="minicart" destination="holder" />
+
+        <referenceContainer name="header.container">
+            <container name="custom.header" label="navbar" htmlTag="div" htmlClass="navbar">
+                <block name='holder' class="Main\Store\Block\TheHeader" template="Magento_Theme::header_holder.phtml">
+
+
+                </block>
+
+            </container>
+        </referenceContainer>
+
+        <referenceContainer htmlClass='container-fluid' name="footer-container">
+            <block name="my-footer" class="Magento\Framework\View\Element\Template" template="Magento_Theme::footer.phtml" />
+        </referenceContainer>
+
+
+    </body>
+</page>
+
+
+
+
+
+

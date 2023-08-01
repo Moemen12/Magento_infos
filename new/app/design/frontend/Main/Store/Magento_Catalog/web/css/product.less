@@ -1,0 +1,111 @@
+.product-holder {
+    display: flex !important;
+    align-items: center;
+
+    img {
+        width: 57% !important;
+    }
+
+    .product-container {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+
+        .product-info-main {
+            width: auto;
+
+
+            .product-info-price {
+
+                border-bottom: 0;
+                display: flex !important;
+                flex-direction: column-reverse;
+                align-items: flex-start;
+
+
+                span.price {
+                    color: #fc6d20;
+                    display: block;
+                    margin-top: 15px;
+                }
+
+                .price-box.price-final_price {
+                    padding: 0;
+                    width: auto;
+                }
+
+                .product-info-stock-sku {
+                    padding: 0;
+                    text-align: unset;
+                }
+
+                .price-label {
+                    display: none !important;
+                }
+            }
+
+            .product-add-form {
+                .fieldset {
+                    letter-spacing: unset;
+
+                    label {
+                        &::after {
+                            font-size: 2rem;
+                        }
+
+                        span {
+                            text-transform: lowercase;
+                            font-weight: 900;
+                            font-size: 1.4rem;
+
+                        }
+                    }
+                }
+            }
+        }
+
+        h2 {
+            margin: 0;
+            font-size: 2.8rem;
+            text-transform: uppercase;
+            width: max-content;
+            font-weight: bold;
+            color: black;
+        }
+
+        // p {
+        //     text-transform: uppercase;
+        //     margin: 0;
+        //     font-size: 1.2rem;
+
+        //     span {
+        //         color: darkgray;
+        //     }
+        // }
+
+
+
+    }
+
+}
+
+.centerize-Element {
+
+    .breadcrumbs {
+        display: flex;
+        justify-content: flex-start;
+        margin: 40px 0 0 0;
+
+        .items {
+            a {
+                color: #FE6717;
+            }
+
+            .item.product {
+                strong {
+                    text-transform: uppercase;
+                }
+            }
+        }
+    }
+}

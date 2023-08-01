@@ -1,0 +1,4 @@
+<theme xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Config/etc/theme.xsd">
+    <title>Mageplaza Simple</title>    <!-- your theme's name -->
+    <parent>Magento/blank</parent>    <!-- the parent theme, in case your theme inherits from an existing theme -->
+</theme>

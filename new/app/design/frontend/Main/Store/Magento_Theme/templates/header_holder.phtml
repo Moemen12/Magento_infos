@@ -1,0 +1,78 @@
+<script>
+require(['Global'], function(Global) {
+    let categoryBtn = document.querySelector('.category-hover');
+    let category = document.querySelector('.todisplay');
+    categoryBtn.addEventListener('mouseover', () => {
+        category.style.visibility = 'visible';
+    });
+
+    categoryBtn.addEventListener('mouseout', () => {
+        category.style.visibility = 'hidden';
+    });
+
+    category.addEventListener('mouseover', () => {
+        category.style.visibility = 'visible';
+    });
+    category.addEventListener('mouseout', () => {
+        category.style.visibility = 'hidden';
+    });
+});
+</script>
+<?php echo $this->getLayout()->createBlock("Magento\Theme\Block\Html\Header\Logo")->setTemplate("Magento_Theme::html/header/logo.phtml")->toHtml();
+
+?>
+
+
+
+
+<?php $allCategories = $this->getCategories(); ?>
+<ul>
+    <li><a href="#">About Us</a></li>
+    <li class='category-hover'>
+        <a href="#">Categories</a>
+    </li>
+    <div class='todisplay'>
+        <?php foreach ($allCategories as $categoryId => $category) : ?>
+        <div class='category-child'>
+            <div>
+                <a href="<?php echo $category['url']; ?>">
+                    <h6><?php echo $category['name']; ?></h6>
+                </a>
+            </div>
+
+            <?php echo $this->renderSubcategories($category['subcategories']); ?>
+
+        </div>
+        <?php endforeach; ?>
+    </div>
+    <li><a href="#">Brands</a></li>
+    <li><a href="#">Contact Us</a></li>
+</ul>
+
+<?php echo $this->getLayout()->createBlock("Magento\Framework\View\Element\Template")->setTemplate("Magento_Search::form.mini.phtml")->toHtml(); ?>
+
+<div class="bags-holder">
+    <div class="wishlist">
+        <a href="<?php echo $this->getUrl('wishlist') ?>">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="black" class="bi bi-heart"
+                viewBox="0 0 16 16">
+                <path
+                    d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z" />
+            </svg>
+        </a>
+    </div>
+
+
+    <?= $block->getChildHtml('minicart') ?>
+
+
+
+
+    <div class='sign-in'>
+        <?php echo $this->getLayout()->createBlock('Magento\Customer\Block\Account\AuthorizationLink')->setTemplate('Magento_Customer::account/link/authorization.phtml')->toHtml(); ?>
+    </div>
+
+
+
+
+</div>

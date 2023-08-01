@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Mageplaza
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the mageplaza.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.mageplaza.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Mageplaza
+ * @package     Mageplaza_Core
+ * @copyright   Copyright (c) Mageplaza (https://www.mageplaza.com/)
+ * @license     https://www.mageplaza.com/LICENSE.txt
+ */
+ -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Mageplaza_Core::menu" title="Mageplaza" module="Mageplaza_Core" sortOrder="50" resource="Mageplaza_Core::menu"/>
+        <add id="Mageplaza_Core::documentation" title="Documentations" module="Mageplaza_Core" sortOrder="5" resource="Mageplaza_Core::documentation" parent="Mageplaza_Core::menu"/>
+<!--        <add id="Mageplaza_Core::marketplace" title="Mageplaza Marketplace" module="Mageplaza_Core" sortOrder="10" action="adminhtml/system_config/edit/section/mpmarketplace" resource="Mageplaza_Core::marketplace" parent="Mageplaza_Core::documentation"/>-->
+        <add id="Mageplaza_Core::userguide" title="User Guides" module="Mageplaza_Core" sortOrder="20" action="mpcore/index/userguide" resource="Mageplaza_Core::userguide" parent="Mageplaza_Core::documentation"/>
+    </menu>
+</config>

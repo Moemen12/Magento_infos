@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<layout xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_layout.xsd">
+    <update handle="1column"/>
+    <referenceContainer name="content">
+
+
+
+
+        <block class="Magento\Framework\View\Element\Template" name="new-wrapper" template="Main_Store::home.phtml">
+
+            <block name='categories' class="Main\Store\Block\Index" template="Main_Store::categories_section.phtml"/>
+            <block name='featured_products' class="Magento\Catalog\Block\Product\ListProduct" template="Main_Store::product/list.phtml"/>
+            <block name='best_sellers_products' class="Magento\Catalog\Block\Product\ListProduct" template="Main_Store::product/best_sellers.phtml"/>
+            <block name='brand_products' class="Main\Store\Block\Brands" template="Main_Store::product/brands.phtml"/>
+            <block name='contactForm' class="Magento\Contact\Block\ContactForm" template="Main_Store::contact/form.phtml"/>
+        </block>
+
+
+
+
+
+
+
+
+        <!-- <block class="Magento\Catalog\Block\Widget\RecentlyViewed" name="recently_viewed" template="Magento_Catalog::product/widget/viewed/grid.phtml" after="-">
+            <arguments>
+                <argument name="uiComponent" xsi:type="string">widget_recently_viewed</argument>
+                <argument name="page_size" xsi:type="number">4</argument>
+                <argument name="show_attributes" xsi:type="string">name,image,price,learn_more</argument>
+                <argument name="show_buttons" xsi:type="string">add_to_cart,add_to_compare,add_to_wishlist</argument>
+            </arguments>
+        </block> -->
+
+    </referenceContainer>
+    <move element="recently_viewed" destination="new-wrapper" />
+</layout>
+

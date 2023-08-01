@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<ruleset name="Magento">
+    <description>Custom Magento coding standard.</description>
+
+    <rule ref="PSR2"/>
+
+    <rule ref="Magento.Files.LineLength">
+        <properties>
+            <property name="lineLimit" value="120"/>
+            <property name="absoluteLineLimit" value="120"/>
+        </properties>
+        <exclude-pattern>*.phtml</exclude-pattern>
+    </rule>
+    <rule ref="Magento.LiteralNamespaces.LiteralNamespaces">
+        <exclude-pattern>*/_files/*</exclude-pattern>
+    </rule>
+
+    <rule ref="Generic.Functions.CallTimePassByReference"/>
+    <rule ref="Generic.PHP.DeprecatedFunctions"/>
+
+    <rule ref="Squiz.Commenting.DocCommentAlignment"/>
+    <rule ref="Squiz.Functions.GlobalFunction"/>
+    <rule ref="Squiz.Operators.ValidLogicalOperators"/>
+    <rule ref="Squiz.WhiteSpace.LogicalOperatorSpacing"/>
+
+    <rule ref="PEAR.ControlStructures.ControlSignature">
+        <exclude-pattern>*.phtml</exclude-pattern>
+    </rule>
+    <rule ref="Squiz.ControlStructures.ControlSignature.NewlineAfterOpenBrace">
+        <exclude-pattern>*.phtml</exclude-pattern>
+    </rule>
+    <rule ref="PEAR.WhiteSpace.ScopeClosingBrace">
+        <exclude-pattern>*.phtml</exclude-pattern>
+    </rule>
+    <rule ref="Squiz.WhiteSpace.ScopeClosingBrace">
+        <exclude-pattern>*.phtml</exclude-pattern>
+    </rule>
+</ruleset>

@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Mageplaza
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the mageplaza.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.mageplaza.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Mageplaza
+ * @package     Mageplaza_Core
+ * @copyright   Copyright (c) Mageplaza (https://www.mageplaza.com/)
+ * @license     https://www.mageplaza.com/LICENSE.txt
+ */
+ -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="mageplaza" translate="label" sortOrder="401" class="mageplaza-extensions">
+            <label>Mageplaza Extensions</label>
+        </tab>
+        <section id="mageplaza" translate="label" type="text" sortOrder="8888" showInDefault="1" showInWebsite="0" showInStore="0">
+            <label>Information</label>
+            <tab>mageplaza</tab>
+            <resource>Mageplaza_Core::configuration</resource>
+            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>General Configuration</label>
+                <field id="notice_enable" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Enable Notifications</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>Select Yes to get latest updates from Mageplaza.</comment>
+                </field>
+                <field id="notice_type" translate="label comment" type="multiselect" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Category</label>
+                    <source_model>Mageplaza\Core\Model\Config\Source\NoticeType</source_model>
+                    <comment>Select categories that you want to receive notifications</comment>
+                    <depends>
+                        <field id="notice_enable">1</field>
+                    </depends>
+                </field>
+                <field id="menu" translate="label comment" type="select" sortOrder="30" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Enable Mageplaza Menu</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <backend_model>Mageplaza\Core\Model\Config\Backend\Menu</backend_model>
+                    <comment>If yes, the Mageplaza menu will be displayed on the admin navigation. All of the Mageplaza module menu will be displayed there.</comment>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

@@ -1,0 +1,51 @@
+<script>
+require(['Swiper'], function(Swiper) {
+    $(document).ready(function() {
+        swiper = new Swiper(".mySwipercategory", {
+            slidesPerView: 4,
+
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+        });
+    });
+});
+</script>
+
+
+
+
+
+<section class="container">
+    <div class="all-categories swiper mySwipercategory">
+        <p class='category-text'>categories</p>
+        <div class='categories-flex swiper-wrapper'>
+
+            <?php
+            $categoryHelper = $this->helper('Magento\Catalog\Helper\Category');
+            $outputhelper   = $this->helper('Magento\Catalog\Helper\Output');
+
+            $imageUrls = $block->getCategoryImageUrls(); // Get the image URLs from the $block variable
+
+            $index = 0; // Index to keep track of the current image URL
+
+            foreach ($categoryHelper->getStoreCategories() as $category) :
+                $imageUrl = isset($imageUrls[$index]) ? $imageUrls[$index] : ''; // Get the current image URL
+            ?>
+            <a class='swiper-slide' href="<?php echo $categoryHelper->getCategoryUrl($category) ?>">
+                <div class='child-category'>
+                    <div>
+                        <img style="background-image: url('<?= $imageUrl; ?>');" alt="">
+                    </div>
+
+                    <p> <?php echo $category->getName() ?></p>
+                </div>
+            </a>
+            <?php
+                $index++; // Increment the index after each iteration
+            endforeach;
+            ?>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,41 @@
+<?php
+/**
+ * Mageplaza
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Mageplaza.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.mageplaza.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Mageplaza
+ * @package     Mageplaza_FollowUpEmail
+ * @copyright   Copyright (c) Mageplaza (https://www.mageplaza.com/)
+ * @license     https://www.mageplaza.com/LICENSE.txt
+ */
+
+/** @var \Magento\Framework\View\Element\Template $block */
+?>
+<div class="mpQFC-image-loader grid-loader">
+    <div class="loader">
+        <img src="<?= /* @noEscape */ $block->getViewFileUrl('images/loader-1.gif') ?>"
+             alt="<?= /* @noEscape */ __('Loading') ?>">
+    </div>
+</div>
+<script type="text/x-magento-init">
+    {
+        "*": {
+            "mpQFC/ajax":{
+                "flushCacheUrl": "<?= /* @noEscape */ $block->getUrl('mpquickflushcache/cache/flushSystem') ?>",
+                "flushCacheIndexUrl": "<?= /* @noEscape */ $block->getUrl('mpquickflushcache/cache/index') ?>",
+                "reindexUrl": "<?= /* @noEscape */ $block->getUrl('mpquickflushcache/indexer/reindex') ?>",
+                "reindexListUrl": "<?= /* @noEscape */ $block->getUrl('mpquickflushcache/indexer/list') ?>"
+            }
+        }
+    }
+</script>

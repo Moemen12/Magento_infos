@@ -1,0 +1,23 @@
+@media only screen and (max-width: 1300px) {
+  .navbar ul {
+    order: 1;
+    flex: 1;
+    justify-content: space-evenly;
+  }
+  .yo {
+    flex-direction: column;
+  }
+  ol.to-clear {
+    justify-content: space-between;
+  }
+}
+@media only screen and (max-width: 1000px) {
+  .container .to-contact .contact fieldset .contact-one {
+    flex-direction: column;
+  }
+}
+@media only screen and (max-width: 676px) {
+  .container .to-contact .contact {
+    flex-direction: column;
+  }
+}

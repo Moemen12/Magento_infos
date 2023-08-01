@@ -1,0 +1,132 @@
+<?php
+
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// phpcs:disable PSR2.ControlStructures.SwitchDeclaration
+// phpcs:disable Generic.WhiteSpace.ScopeIndent
+
+/** @var $block \Magento\Swatches\Block\LayeredNavigation\RenderLayered */
+
+?>
+<script>
+    function toggleCategories() {
+        let parentCategoriesElement = document.getElementById('parentCategoriesd');
+        let toggleElement = document.querySelector('#accordion .card-header');
+        let isCollapsed = parentCategoriesElement.classList.contains('show');
+
+        parentCategoriesElement.classList.toggle('show', !isCollapsed);
+
+        if (toggleElement) {
+            toggleElement.classList.toggle('collapsed', !isCollapsed);
+        }
+    }
+</script>
+<div id="accordion">
+    <div class="card">
+        <div class="card-header" onclick="toggleCategories()" data-toggle="collapse" data-target="#parentCategoriesd">
+            <h5 class="mb-0">
+                <div class="accordion-toggle">
+                    Brands
+                </div>
+            </h5>
+            <div class='new-arrow'></div>
+        </div>
+    </div>
+    <div id="parentCategoriesd" class="collapse">
+
+        <?php $swatchData = $block->getSwatchData(); ?>
+        <div class="swatch-attribute swatch-layered collapse show <?= $block->escapeHtmlAttr($swatchData['attribute_code']) ?>" attribute-code="<?= $block->escapeHtmlAttr($swatchData['attribute_code']) ?>" attribute-id="<?= $block->escapeHtmlAttr($swatchData['attribute_id']) ?>">
+            <div class="swatch-attribute-options clearfix">
+                <?php foreach ($swatchData['options'] as $option => $label) : ?>
+                    <a href="<?= $block->escapeUrl($label['link']) ?>" aria-label="<?= $block->escapeHtmlAttr($label['label']) ?>" class="swatch-option-link-layered">
+                        <?php if (isset($swatchData['swatches'][$option]['type'])) : ?>
+                            <?php switch ($swatchData['swatches'][$option]['type']) {
+                                case '3':
+                            ?>
+                                    <div class="swatch-option <?= $block->escapeHtmlAttr($label['custom_style']) ?>" tabindex="-1" option-type="3" option-id="<?= $block->escapeHtmlAttr($option) ?>" option-label="<?= $block->escapeHtmlAttr($label['label']) ?>" option-tooltip-thumb="" option-tooltip-value=""></div>
+                                <?php break;
+                                case '2':
+                                ?>
+                                    <?php $swatchThumbPath = $block->getSwatchPath('swatch_thumb', $swatchData['swatches'][$option]['value']); ?>
+                                    <?php $swatchImagePath = $block->getSwatchPath('swatch_image', $swatchData['swatches'][$option]['value']); ?>
+                                    <div class="swatch-option image <?= $block->escapeHtmlAttr($label['custom_style']) ?>" tabindex="-1" option-type="2" option-id="<?= $block->escapeHtmlAttr($option) ?>" option-label="<?= $block->escapeHtmlAttr($label['label']) ?>" option-tooltip-thumb="<?= $block->escapeUrl($swatchThumbPath) ?>" option-tooltip-value="" style="background: url(<?= $block->escapeUrl($swatchImagePath) ?>) no-repeat center; background-size: initial;">
+                                    </div>
+                                <?php break;
+                                case '1':
+                                ?>
+                                    <div class="swatch-option color <?= $block->escapeHtmlAttr($label['custom_style']) ?>" tabindex="-1" option-type="1" option-id="<?= $block->escapeHtmlAttr($option) ?>" option-label="<?= $block->escapeHtmlAttr($label['label']) ?>" option-tooltip-thumb="" option-tooltip-value="<?= $block->escapeHtmlAttr($swatchData['swatches'][$option]['value']) ?>" style="background: <?= $block->escapeHtmlAttr($swatchData['swatches'][$option]['value']) ?> no-repeat center; background-size: initial;">
+                                    </div>
+                                <?php break;
+                                case '0':
+                                default:
+                                ?>
+                                    <div class="swatch-option text <?= $block->escapeHtmlAttr($label['custom_style']) ?>" tabindex="-1" option-type="0" option-id="<?= $block->escapeHtmlAttr($option) ?>" option-label="<?= $block->escapeHtmlAttr($label['label']) ?>" option-tooltip-thumb="" option-tooltip-value=""><?= $block->escapeHtml($swatchData['swatches'][$option]['value']) ?>
+                                    </div>
+                            <?php break;
+                            } ?>
+                        <?php endif; ?>
+                    </a>
+                <?php endforeach; ?>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    require(["jquery", "jquery/ui", "Magento_Swatches/js/swatch-renderer"], function($) {
+        $('.swatch-layered.<?= $block->escapeJs($swatchData['attribute_code']) ?>')
+            .find('[option-type="1"], [option-type="2"], [option-type="0"], [option-type="3"]')
+            .SwatchRendererTooltip();
+    });
+
+
+    let accBtn = 0;
+
+    document.querySelector('#accordion .card-header').addEventListener('click', function() {
+        if (accBtn == 1) {
+            document.querySelector('.new-arrow').style.transform = 'rotate(180deg)';
+            accBtn--;
+        } else {
+            document.querySelector('.new-arrow').style.transform = 'rotate(0deg)';
+            accBtn++;
+        }
+
+    });
+
+    document.querySelectorAll('#parentCategories .card .card-header').forEach(function($value) {
+        let m = 0;
+
+        $value.addEventListener('click', function() {
+
+
+            let secondArrow = this.lastChild.previousElementSibling;
+
+            if (m == 1) {
+                secondArrow.style.cssText = 'rotate:180deg;transform:translate(-9px, -4px)';
+                m--;
+            } else {
+                secondArrow.style.cssText = 'rotate:0deg;transform:translate(9px, 4px)';
+                m++;
+            }
+
+
+        })
+    })
+
+
+    function toggleAccordion(categoryId) {
+        let collapseId = "collapse-" + categoryId;
+        let collapseElement = document.getElementById(collapseId);
+        let toggleElement = document.querySelector('#' + collapseId + ' .accordion-toggle');
+        let isCollapsed = collapseElement.classList.contains('show');
+
+        collapseElement.classList.toggle('show', !isCollapsed);
+
+        if (toggleElement) {
+            toggleElement.classList.toggle('collapsed', !isCollapsed);
+        }
+    }
+</script>

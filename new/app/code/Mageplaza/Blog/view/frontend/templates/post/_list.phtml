@@ -1,0 +1,113 @@
+<?php
+/**
+ * Mageplaza
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Mageplaza.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.mageplaza.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Mageplaza
+ * @package     Mageplaza_Blog
+ * @copyright   Copyright (c) Mageplaza (https://www.mageplaza.com/)
+ * @license     https://www.mageplaza.com/LICENSE.txt
+ */
+
+/** @var \Mageplaza\Blog\Block\Frontend $block */
+?>
+
+<div class="mp-blog-rss">
+    <a href="<?= $block->getRssUrl('post/rss') ?>" class="bb-rss-icon">
+        <img src="<?= $this->getViewFileUrl('Mageplaza_Blog::media/images/rss.png') ?>" width="16px">
+    </a>
+</div>
+<div class="post-list-content container" id="mpblog-list-container">
+    <?php $postCollection = $block->getPostCollection(); ?>
+    <?php $postCollection->setOrder('post_position' , 'asc'); ?>
+    <?php if ($postCollection && $postCollection->getSize()) : ?>
+        <div class="post-list-body">
+            <?php //$i = 1 ?>
+            <?php /** @var \Mageplaza\Blog\Model\Post $post */
+            foreach ($postCollection as $post) : ?>
+                <?= $post->getPostPosition(); ?>
+                <?= $post->getId(); ?>
+              <?php //if($position == $post->getId()) : ?>  
+                <div class="post-list-item col-mp<?= $block->isGridView() ? ' post-item-grid mp-6 mp-xs-12' : ' post-item-list mp-12'; ?>">
+                    <div class="post-item-wraper">
+                        <?php if ($post->getImage()) : ?>
+                            <div class="post-image">
+                                <a href='http://<?= $post->getShortDescription(); ?>' target="_blank">
+                                  
+                                    <img class="img-responsive"
+                                         src="<?= $block->resizeImage($post->getImage(), '400x'); ?>"
+                                         alt="<?= $block->escapeHtml($post->getName()); ?>"/>
+                                </a>
+                            </div>
+                        <?php endif; ?>
+                        <div class="post-info-wraper">
+                            <!-- <h2 class="mp-post-title">
+                                <a class="post-link-title" title="<?= $block->escapeHtml($post->getName()); ?>"
+                                   href='http://<?= $post->getShortDescription(); ?>'>
+                                    <?= $post->getName(); ?>
+                                </a>
+                            </h2> -->
+                            <div class="mp-post-info">
+                                <?= $block->getPostInfo($post); ?>
+                            </div>
+                            <div class="post-content">
+                               <?= $post->getPostContent(); ?>
+                               <a id="read-more" href="#">Read More</a>
+                            </div>
+                            <div class="post-short-description">
+                                <?= $post->getPostPosition(); ?>
+                                <a target="_blank" href='http://<?= $post->getShortDescription(); ?>'><?= $post->getShortDescription(); ?></a>
+                            </div>
+                           
+                            <div class="mp-clearfix"></div>
+                        </div>
+                    </div>
+                </div>
+              <?php //endif; ?>  
+                <?php //if ($i++ % 2 == 0) : ?>
+                    <!-- <div class="mp-clear"></div> -->
+                <?php //endif; ?>
+            <?php endforeach; ?>
+            <div class="mp-clear"></div>
+        </div>
+        <?= $block->getPagerHtml() ?>
+    <?php else : ?>
+        <?= __('There are no posts at this moment'); ?>
+    <?php endif; ?>
+    <?= $this->getChildHtml('additional'); ?>
+</div>
+<script>
+    require(['jquery'], function ($) {
+        $('.limiter').css('float', 'right');
+
+       $(".post-item-wraper").each(function(){
+            $(this).find("#read-more").click(function(){
+                if($(this).html() == "Read Less"){
+                    $(this).html("Read More");
+                    $(this).css("position" , "absolute");
+                    $(this).parent().css("display" , "-webkit-box"); // text parent
+                    $(this).parent().find("p").css("width" , "255px"); // p
+                    $(this).parent().parent().parent().css("height" , "260px");
+                }else{
+                    $(this).html("Read Less");
+                    $(this).css("position" , "unset");
+                    $(this).parent().css("display" , "unset"); // text parent
+                    $(this).parent().find("p").css("width" , "100%"); // p
+                    $(this).parent().parent().parent().css("height" , "400px");
+                }
+             });
+       }); 
+       
+    });
+</script>
+

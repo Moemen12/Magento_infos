@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Mageplaza
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Mageplaza.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.mageplaza.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Mageplaza
+ * @package     Mageplaza_BannerSlider
+ * @copyright   Copyright (c) Mageplaza (https://www.mageplaza.com/)
+ * @license     https://www.mageplaza.com/LICENSE.txt
+ */
+ -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <mpbannerslider>
+            <general>
+                <enabled>1</enabled>
+            </general>
+            <mpbannerslider_design>
+                <responsive>0</responsive>
+                <autoWidth>0</autoWidth>
+                <autoHeight>1</autoHeight>
+                <loop>1</loop>
+                <nav>0</nav>
+                <dots>0</dots>
+                <lazyLoad>0</lazyLoad>
+                <autoplay>1</autoplay>
+                <autoplayTimeout>5000</autoplayTimeout>
+            </mpbannerslider_design>
+        </mpbannerslider>
+    </default>
+</config>

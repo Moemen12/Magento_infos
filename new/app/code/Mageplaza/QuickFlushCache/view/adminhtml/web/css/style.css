@@ -1,0 +1,44 @@
+/**
+ * Mageplaza
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Mageplaza.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.mageplaza.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Mageplaza
+ * @package     Mageplaza_FollowUpEmail
+ * @copyright   Copyright (c) Mageplaza (https://www.mageplaza.com/)
+ * @license     https://www.mageplaza.com/LICENSE.txt
+ */
+
+.mpQFC-image-loader {
+    display: none;
+    background-color: #FFFFFF;
+    height: 50px;
+    left: 0;
+    opacity: 0.5;
+    filter: alpha(opacity=50);
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 555;
+}
+
+.mpQFC-image-loader img {
+    left: 50%;
+    display: block;
+    position: absolute;
+    width: 35px;
+    top: 20%
+}
+
+.notices-wrapper{
+    position: relative;
+}
